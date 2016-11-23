@@ -28,13 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.pictBox = new System.Windows.Forms.PictureBox();
+            this.imgBox = new Emgu.CV.UI.ImageBox();
+            this.butClearOp = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBox)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -65,25 +67,35 @@
             // openFileDialog
             // 
             this.openFileDialog.DefaultExt = "*.pgm";
-            this.openFileDialog.FileName = "*.pgm";
-            this.openFileDialog.Filter = "Images (*.pgm)|*.pgm|(*.bmp)|*.bmp|(*.jpg)|*.jpg";
+            this.openFileDialog.FileName = "*.*";
+            this.openFileDialog.Filter = "Raw (*.pgm)|*.*|Bitmap (*.bmp)|*.bmp|JPG (*.jpg)|*.jpg|Png (*.png)|*.png";
             // 
-            // pictBox
+            // imgBox
             // 
-            this.pictBox.Location = new System.Drawing.Point(0, 24);
-            this.pictBox.Margin = new System.Windows.Forms.Padding(0);
-            this.pictBox.Name = "pictBox";
-            this.pictBox.Size = new System.Drawing.Size(912, 382);
-            this.pictBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictBox.TabIndex = 1;
-            this.pictBox.TabStop = false;
+            this.imgBox.Location = new System.Drawing.Point(0, 27);
+            this.imgBox.Name = "imgBox";
+            this.imgBox.Size = new System.Drawing.Size(912, 379);
+            this.imgBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imgBox.TabIndex = 2;
+            this.imgBox.TabStop = false;
+            // 
+            // butClearOp
+            // 
+            this.butClearOp.Location = new System.Drawing.Point(861, 1);
+            this.butClearOp.Name = "butClearOp";
+            this.butClearOp.Size = new System.Drawing.Size(39, 23);
+            this.butClearOp.TabIndex = 3;
+            this.butClearOp.Text = "Clear";
+            this.butClearOp.UseVisualStyleBackColor = true;
+            this.butClearOp.Click += new System.EventHandler(this.butClearOp_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(912, 404);
-            this.Controls.Add(this.pictBox);
+            this.Controls.Add(this.butClearOp);
+            this.Controls.Add(this.imgBox);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
@@ -92,7 +104,7 @@
             this.ClientSizeChanged += new System.EventHandler(this.Form1_ResizeEnd);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.imgBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -104,7 +116,8 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
-        private System.Windows.Forms.PictureBox pictBox;
+        private Emgu.CV.UI.ImageBox imgBox;
+        private System.Windows.Forms.Button butClearOp;
     }
 }
 
