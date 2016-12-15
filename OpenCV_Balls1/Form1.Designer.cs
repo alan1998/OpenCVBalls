@@ -32,9 +32,12 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.operationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cannyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.imgBox = new Emgu.CV.UI.ImageBox();
             this.butClearOp = new System.Windows.Forms.Button();
+            this.txtXY = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgBox)).BeginInit();
             this.SuspendLayout();
@@ -42,7 +45,8 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
+            this.fileToolStripMenuItem,
+            this.operationsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(912, 24);
@@ -64,6 +68,20 @@
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
+            // operationsToolStripMenuItem
+            // 
+            this.operationsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cannyToolStripMenuItem});
+            this.operationsToolStripMenuItem.Name = "operationsToolStripMenuItem";
+            this.operationsToolStripMenuItem.Size = new System.Drawing.Size(77, 20);
+            this.operationsToolStripMenuItem.Text = "Operations";
+            // 
+            // cannyToolStripMenuItem
+            // 
+            this.cannyToolStripMenuItem.Name = "cannyToolStripMenuItem";
+            this.cannyToolStripMenuItem.Size = new System.Drawing.Size(117, 22);
+            this.cannyToolStripMenuItem.Text = "Canny...";
+            // 
             // openFileDialog
             // 
             this.openFileDialog.DefaultExt = "*.pgm";
@@ -78,6 +96,8 @@
             this.imgBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgBox.TabIndex = 2;
             this.imgBox.TabStop = false;
+            this.imgBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.imgBox_MouseDoubleClick);
+            this.imgBox.MouseMove += new System.Windows.Forms.MouseEventHandler(this.imgBox_MouseMove);
             // 
             // butClearOp
             // 
@@ -89,11 +109,21 @@
             this.butClearOp.UseVisualStyleBackColor = true;
             this.butClearOp.Click += new System.EventHandler(this.butClearOp_Click);
             // 
+            // txtXY
+            // 
+            this.txtXY.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtXY.Cursor = System.Windows.Forms.Cursors.Default;
+            this.txtXY.Location = new System.Drawing.Point(755, 3);
+            this.txtXY.Name = "txtXY";
+            this.txtXY.Size = new System.Drawing.Size(100, 13);
+            this.txtXY.TabIndex = 4;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(912, 404);
+            this.Controls.Add(this.txtXY);
             this.Controls.Add(this.butClearOp);
             this.Controls.Add(this.imgBox);
             this.Controls.Add(this.menuStrip1);
@@ -118,6 +148,9 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog;
         private Emgu.CV.UI.ImageBox imgBox;
         private System.Windows.Forms.Button butClearOp;
+        private System.Windows.Forms.ToolStripMenuItem operationsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cannyToolStripMenuItem;
+        private System.Windows.Forms.TextBox txtXY;
     }
 }
 

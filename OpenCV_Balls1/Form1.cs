@@ -24,7 +24,7 @@ namespace OpenCV_Balls1
         {            
             if (openFileDialog.ShowDialog(this) != DialogResult.Cancel)
             {
-                Emgu.CV.Image<Rgb, Byte> Img = new Emgu.CV.Image<Rgb, Byte>(openFileDialog.FileName);
+                Emgu.CV.Image<Gray, Byte> Img = new Emgu.CV.Image<Gray, Byte>(openFileDialog.FileName);
                 imgBox.Image = Img;
                 this.Text = openFileDialog.FileName;
                 // Get image data that is stored in the image from first pixels?
@@ -41,7 +41,30 @@ namespace OpenCV_Balls1
 
         private void butClearOp_Click(object sender, EventArgs e)
         {
-            imgBox.ClearOperation();
+            imgBox.PopOperation();
+            //imgBox.ClearOperation();
+        }
+
+        private void imgBox_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (imgBox.Image != null)
+            {
+                var sz = imgBox.Image.Size;
+                var scale = imgBox.ZoomScale;
+                txtXY.Text = "(" + e.X + "," + e.Y + ")";
+            }
+            else
+                txtXY.Text = " ";
+        }
+
+        private void imgBox_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if(e.Button == MouseButtons.Left)
+            {
+                IImage i = imgBox.Image;
+                
+                var v = CvInvoke.HoughCircles(imgBox.Image, HoughType.Gradient, 1, 100, 100, 50, 50, 200);
+            }
         }
 
     }

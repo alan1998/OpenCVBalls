@@ -1,0 +1,22 @@
+﻿<Window x:Class="WpfBalls.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525" Initialized="Window_Initialized" Name="MainWnd">
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Horizontal" Grid.Row="0">
+            <Button Name="butFile" Click="butFile_Click" Margin="2">File</Button>
+            <Button Name="butAction" Click="butAction_Click" Margin="2">Process</Button>
+            <Button Name="butToggleRes" Click="butToggleRes_Click"  Margin="2">Overlay</Button>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1">
+            <ScrollBar Minimum="0" Orientation="Vertical" Name="scrFile" Width="15" Scroll="scrFile_Scroll" SmallChange="1"></ScrollBar>
+            <Image Name="DispImage" Grid.Row="1"></Image>    
+        </StackPanel>
+        
+    </Grid>
+</Window>
